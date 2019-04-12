@@ -31,7 +31,7 @@ export default {
     axios
       .get("https://jsonplaceholder.typicode.com/todos")
       .then(response => (this.list = response.data))
-			.catch(error => console.log(error))
+			.catch(error => console.error(error))
 			.finally(() => this.loading = false)
   }
 };

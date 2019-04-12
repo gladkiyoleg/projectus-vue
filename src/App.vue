@@ -4,10 +4,9 @@
     <div class="page-main">
       <appHeader></appHeader>
       <main class="container">
-				<transition name="fade"
-        mode="out-in">
-        	<router-view></router-view>
-				</transition>
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </main>
     </div>
   </div>
@@ -232,6 +231,6 @@ img {
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 </style>
