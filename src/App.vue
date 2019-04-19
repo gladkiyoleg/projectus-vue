@@ -1,21 +1,23 @@
 <template>
-  <div class="page" id="app">
-    <appSidebar></appSidebar>
-    <div class="page-main">
-      <appHeader></appHeader>
-      <main class="container">
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-      </main>
-    </div>
-  </div>
+	<appLayout> 
+		<div class="page" id="app">
+			<appSidebar></appSidebar>
+			<div class="page-main">
+				<appHeader></appHeader>
+				<main class="container">
+					<transition name="fade" mode="out-in">
+						<router-view></router-view>
+					</transition>
+				</main>
+			</div>
+		</div>
+	</appLayout>
 </template>
 
 <script>
 import appHeader from "@/layout/appHeader";
 import appSidebar from "@/layout/appSidebar";
-
+import appLayout from "@/layout/appLayout";
 export default {
   name: "app",
   data() {
@@ -23,214 +25,8 @@ export default {
   },
   components: {
     appHeader,
-    appSidebar
+		appSidebar,
+		appLayout
   }
 };
 </script>
-
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-}
-body {
-  color: #131313;
-}
-button {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  cursor: pointer;
-}
-img {
-  max-width: 100%;
-}
-.page {
-  display: flex;
-  min-height: 100vh;
-  font-family: Helvetica, sans-serif;
-}
-.header-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px 30px 7px;
-}
-.header-logo {
-  display: flex;
-  align-items: center;
-}
-.header-logo__title {
-  position: relative;
-  display: inline-block;
-  padding: 0 10px 0 55px;
-  font-size: 2rem;
-  line-height: 2.375rem;
-}
-.header-logo__title:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  background-size: cover;
-}
-.header-logo__btn {
-  width: 30px;
-  height: 30px;
-  background-color: #eaeaea;
-  border-radius: 50%;
-  border: none;
-}
-.header-info {
-  display: flex;
-  align-items: center;
-}
-.header-info__avatar {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
-}
-.avatar_circle {
-  display: inline-block;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.header-info__btn {
-  padding: 6px 15px;
-  margin-left: 15px;
-  border-radius: 15px;
-  font-size: 0.875rem;
-  line-height: 1.0625rem;
-}
-.btn_grey {
-  background-color: #eaeaea;
-  color: #131313;
-  transition: 0.3s background-color ease-in-out;
-}
-.btn_grey:hover {
-  background-color: #cecece;
-}
-.btn_chat {
-  display: flex;
-  align-items: center;
-  background-color: #fff8dd;
-  color: #ffc200;
-  transition: 0.3s background-color ease-in-out;
-}
-.btn_chat:hover {
-  background-color: #fdefb8;
-}
-.page-sidebar {
-  width: 270px;
-  background-color: #000000;
-}
-.page-main {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 270px);
-}
-.container {
-  display: flex;
-  justify-content: center;
-  padding: 30px 0 120px;
-  background-color: #eeebe5;
-  height: 100%;
-}
-.icon_check {
-  background-color: #cef9c6;
-  background-image: url(./assets/img/i-check.svg);
-  background-position: center center;
-  background-size: 12px 9px;
-  background-repeat: no-repeat;
-}
-.icon_uncheck {
-  background-color: #f9c6cd;
-  background-image: url(./assets/img/i-clear.svg);
-  background-position: center center;
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-}
-.icon_comment {
-  background-color: #fff8dd;
-  background-image: url(./assets/img/i-comment.svg);
-  background-position: center center;
-  background-size: 12px 11px;
-  background-repeat: no-repeat;
-}
-.icon_download {
-  background-color: #e3efff;
-  background-image: url(./assets/img/i-download.svg);
-  background-position: center center;
-  background-size: 12px 13px;
-  background-repeat: no-repeat;
-}
-.icon_more {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-image: url(./assets/img/i-more.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.icon_chat {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 0 5px 0 0;
-  background-image: url(./assets/img/i-chat.svg);
-}
-.icon_search {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-image: url(./assets/img/i-search.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-}
-.paragraph {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  margin: 0;
-}
-::-webkit-scrollbar,
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-thumb {
-  border-width: 1px 1px 1px 2px;
-  border-color: #000;
-  background-color: #aaa;
-}
-::-webkit-scrollbar-thumb:hover {
-  border-width: 1px 1px 1px 2px;
-  border-color: #aaa;
-  background-color: #aaaa;
-}
-::-webkit-scrollbar-track {
-  border-width: 0;
-}
-::-webkit-scrollbar-track:hover {
-  border-left: solid 1px #aaa;
-  background-color: #eee;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.15s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-}
-</style>
